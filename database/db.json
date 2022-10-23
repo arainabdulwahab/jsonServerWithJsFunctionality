@@ -1,19 +1,31 @@
 {
-    "one": [
+    "users": [
         {
             "id": 1,
+            "name" : "arain",
             "email": "testOne@gmail.com",
             "password": "1234"
         },
         {
             "id": 2,
+            "name" : "abdul",
             "email": "testTwo@gmail.com",
             "password": "1234"
         },
         {
             "id": 3,
+            "name" : "wahab",
             "email": "testThree@gmail.com",
             "password": "1234"
+        }
+    ],
+    "backgroundImage":[
+        {
+            "image1": "../frontEnd/img/img1.webp",
+            "image2": "../frontEnd/img/img2.jpg",
+            "image3": "../frontEnd/img/img3.jpg",
+            "image4": "../frontEnd/img/img4.jpg",
+            "image5": "../frontEnd/img/img5.jpg"
         }
     ]
 }
