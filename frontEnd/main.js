@@ -6,11 +6,11 @@ fetch('http://localhost:3000/backgroundImage')
 .then((response) => response.json())
 .then(json => {
     json.map(data =>{
-        userBackGrButton.append(backGrBtn(data.image1,data.image2,data.image3,data.image4,data.image5));
+        userBackGrButton.append(backGrBtn(data));
     });
 });
 // background button 
-function backGrBtn(image1,image2,image3,image4,image5){
+function backGrBtn(data){
     let div = document.createElement('div');
     div.innerHTML = `
     <div class="dropdown">
@@ -19,19 +19,19 @@ function backGrBtn(image1,image2,image3,image4,image5){
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
         <li class="d-inline">
-          <img src="${image1}" class="img-fluid img-thumbnail" alt="..." width="20%" height="auto">
+          <img src="${data.image1}" class="img-fluid img-thumbnail" alt="..." width="20%" height="auto">
         </li>
         <li class="d-inline">
-          <img src="${image2}" class="img-thumbnail" alt="..." width="20%" height="auto">
+          <img src="${data.image2}" class="img-thumbnail" alt="..." width="20%" height="auto">
         </li>
         <li class="d-inline">
-          <img src="${image3}" class="img-thumbnail" alt="..." width="20%" height="auto">
+          <img src="${data.image3}" class="img-thumbnail" alt="..." width="20%" height="auto">
         </li>
         <li class="d-inline">
-          <img src="${image4}" class="img-thumbnail" alt="..." width="20%" height="auto">
+          <img src="${data.image4}" class="img-thumbnail" alt="..." width="20%" height="auto">
         </li>
         <li class="d-inline">
-          <img src="${image5}" class="img-thumbnail" alt="..." width="20%" height="auto">
+          <img src="${data.image5}" class="img-thumbnail" alt="..." width="20%" height="auto">
         </li>
       </ul>
     </div>
