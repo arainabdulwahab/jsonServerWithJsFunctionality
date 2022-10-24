@@ -27,5 +27,17 @@
             "image4": "../frontEnd/img/img4.jpg",
             "image5": "../frontEnd/img/img5.jpg"
         }
+    ],
+    "search" :[
+        {
+        "name" : "broccoli",
+        "image" : "img/broccoli.jpg",
+        "checked" : "1"
+        },
+        {
+            "name" : "uovo",
+            "image" : "img/Uovo.webp",
+            "checked" : "1"
+        }
     ]
 }
