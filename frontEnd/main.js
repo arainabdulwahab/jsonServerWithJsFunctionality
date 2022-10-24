@@ -18,8 +18,14 @@ addButton.addEventListener('click', () => {
   // bar added 
   let bar = document.createElement('br');
 
+  let checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.value = "value";
+  checkbox.id = "id";
+
+  
   // append all item
-  inputAdd.append(deleteButton,  imageSearch, inputItem, bar);
+  inputAdd.append(deleteButton,  imageSearch, inputItem, checkbox, bar);
 
   deleteButton.addEventListener('click', () => {
     console.log('delete done');
