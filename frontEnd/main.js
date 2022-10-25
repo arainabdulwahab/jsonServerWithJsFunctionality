@@ -87,10 +87,24 @@ addButton.addEventListener('click', () => {
 });
 
 
-// clone list
+// button clone list
 function cloneTodo(){
   let node = document.getElementById('cloneList');
   let clone = node.cloneNode(true);
   document.getElementById("displayCloneList").append(clone);
-  console.log(clone);
 }
+
+// button delete
+function deletebtn(){
+  let list = document.getElementById("displayCloneList");
+  list.remove();
+}
+// button background image
+  let chgBtn = document.querySelector('body');
+function backgrountUser1(){  chgBtn.style.backgroundImage = `url('./img/img1.webp')`;  }
+function backgrountUser2(){  chgBtn.style.backgroundImage = `url('./img/img2.jpg')`;  }
+function backgrountUser3(){  chgBtn.style.backgroundImage = `url('./img/img3.jpg')`;  }
+function backgrountUser4(){  chgBtn.style.backgroundImage = `url('./img/img4.jpg')`;  }
+function backgrountUser5(){  chgBtn.style.backgroundImage = `url('./img/img5.jpg')`;  }
+
+
