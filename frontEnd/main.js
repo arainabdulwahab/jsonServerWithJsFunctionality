@@ -3,7 +3,7 @@ const addButton = document.getElementById('Addbutton');
 let searchImg = 'broccoli';
 
 
-// search state.json and filter it 
+// search db.json and filter it 
 const searchStates = async searchText =>{ 
   const res = await fetch("http://localhost:3000/search");
   const states = await res.json();
@@ -12,22 +12,32 @@ const searchStates = async searchText =>{
     // get matches to current text input 
     let matches = states.filter(state => {
       const regex = new RegExp(`^${searchText}`, 'gi');
-      return state.name.match(regex);
+      if(state.name.match(regex)  ){ 
+        return state.name.match(regex);
+      }
     });
     // empty search box 
     if(searchText.length === 0){ matches = []; matchList.innerHTML = ''}
     //console.log(matches)
+    console.log(matches);
+    console.log(!matches);
     outputHtml(matches);
   };
 // show result in html 
 const outputHtml = matches => {
-  if(matches.length > 0 ){
-    const htmls = matches.map(match => `
+  if(matches.length > 0 && matches){
+    if(matches){ 
+    const htmls = document.createElement('div');
+    htmls.zindex= 1;
+    htmls.id= 'ones';
+    matches.map(match => `
       <div>
         <img src="${match.image}" width="40"><h1>${match.name} </h1>
       </div>
     `).join('');
     matchList.innerHTML = htmls;
+    }
+
   } 
 
 }
@@ -51,13 +61,14 @@ addButton.addEventListener('click', () => {
   let inputItem = document.createElement('input');
   inputItem.type = 'search';
   inputItem.placeholder = 'noe';
+  inputItem.onclick = search();
 
   // match list div 
   let matchList = document.createElement('div');
   matchList.id = 'matchList'
   // bar added 
   let bar = document.createElement('br');
-
+  // add checkbox
   let checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.value = "value";
@@ -71,8 +82,15 @@ addButton.addEventListener('click', () => {
     console.log('delete done');
   });
 
-  inputItem.addEventListener('input', () => searchStates(inputItem.value));
-  console.log();
+   function search(){ inputItem.addEventListener('keyup', () => searchStates(inputItem.value));  console.log(inputItem.value); };
+ 
 });
 
 
+// clone list
+function cloneTodo(){
+  let node = document.getElementById('cloneList');
+  let clone = node.cloneNode(true);
+  document.getElementById("displayCloneList").append(clone);
+  console.log(clone);
+}
